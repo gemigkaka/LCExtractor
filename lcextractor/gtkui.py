@@ -76,7 +76,7 @@ class GtkUI(GtkPluginBase):
             "sonarr_radarr_support": self.glade.get_widget("chk_sonarr_radarr_support").get_active()
         }
 
-        client.extractor.set_config(config)
+        client.lcextractor.set_config(config)
 
     def on_show_prefs(self):
         if client.is_localhost():
@@ -96,4 +96,4 @@ class GtkUI(GtkPluginBase):
             self.glade.get_widget("chk_in_place_extraction").set_active(config["in_place_extraction"])
             self.glade.get_widget("chk_sonarr_radarr_support").set_active(config["sonarr_radarr_support"])
 
-        client.extractor.get_config().addCallback(on_get_config)
+        client.lcextractor.get_config().addCallback(on_get_config)
